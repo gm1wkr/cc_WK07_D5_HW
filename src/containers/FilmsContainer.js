@@ -9,6 +9,7 @@ const FilmContainer = () => {
     const [films, setFilms] = useState([]);
     const [selectedFilm, setSelectedFilm] = useState('');
     const [selectedLimit, setSelectedLimit] = useState('');
+    const [favoriteFilms, setFavoriteFilms] = useState([]);
 
     async function getFilms(){
         const apiUrl = `https://ghibliapi.herokuapp.com/films?limit=${selectedLimit}`;
@@ -32,7 +33,7 @@ const FilmContainer = () => {
                 onLimitSelected={setSelectedLimit}
             />
             </header>
-            <FilmDetail filmArray={films} filmId={selectedFilm} />
+            <FilmDetail filmArray={films} filmId={selectedFilm} onFavButtonClick={setFavoriteFilms} />
             <Footer />
         </>
 
