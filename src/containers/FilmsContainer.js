@@ -3,6 +3,7 @@ import FilmDetail from "../components/FilmDetail";
 import FilmSelector from "../components/FilmSelector";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import WatchList from "../components/WatchList";
 
 const FilmContainer = () => {
 
@@ -16,6 +17,22 @@ const FilmContainer = () => {
         const resp = await fetch(apiUrl);
         const data = await resp.json();
         setFilms(data);
+    }
+
+    const addFilmToFavorites = (FavoriteFilmToAdd) => {
+        if(favoriteFilms.includes(FavoriteFilmToAdd)){
+            return;
+        }
+       const filmCopy = [...favoriteFilms];
+       filmCopy.push(FavoriteFilmToAdd);
+       setFavoriteFilms(filmCopy);
+    }
+
+    const removeFilmFromFavorites = (filmToRemove) => {
+        const filmCopy = [...favoriteFilms];
+        const index = filmCopy.indexOf(filmToRemove);
+        if(index > -1) filmCopy.splice(index,1 );
+        setFavoriteFilms(filmCopy);
     }
 
     useEffect( () => {
@@ -33,7 +50,15 @@ const FilmContainer = () => {
                 onLimitSelected={setSelectedLimit}
             />
             </header>
-            <FilmDetail filmArray={films} filmId={selectedFilm} onFavButtonClick={setFavoriteFilms} />
+            <FilmDetail
+                filmArray={films} 
+                filmId={selectedFilm} 
+                onFavButtonClick={addFilmToFavorites}
+                onFavButtonRemoveClick={removeFilmFromFavorites}
+                favoriteFilms={favoriteFilms}
+            />
+            
+            <WatchList watchList={favoriteFilms} />
             <Footer />
         </>
 

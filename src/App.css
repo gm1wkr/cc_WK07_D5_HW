@@ -137,6 +137,7 @@ h3>span{
   opacity: 0.8;
 }
 
+.watch-list,
 .film-detail > article {
   width: 74vw;;
   margin: 0rem auto;
@@ -206,6 +207,7 @@ ul.horizontal-list li {
   font-size: 1.6rem;
 }
 
+
 ul.characters,
 ul.characters ul {
   list-style: none;
@@ -226,8 +228,21 @@ ul.characters > li > ul {
   text-align: center;
 }
 
+.watch-list {
+  margin: 2rem auto;
+  background-color: var(--background);
+}
 
+.watch-list ul{
+  list-style: none;
+}
+.watch-list >ul >li {
+  margin-bottom: 1rem;
+}
 
+.watch-list-controls{
+  
+}
 
 @keyframes animatedBackground {
 /* 
