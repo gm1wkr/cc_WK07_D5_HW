@@ -1,38 +1,255 @@
-.App {
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100&family=Zhi+Mang+Xing&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Zhi+Mang+Xing&display=swap');
+:root{
+  
+  --background: #1a0901;
+  
+  --color-primary:hsl(36, 94%, 93%);
+  --inset-color-30: hsla(35, 100%, 84%, 0.318);
+  --surface-20: hsla(22, 92%, 10%, 0.472);
+  --surface-30: hsl(22, 100%, 50%);
+  --surface-50: hsla(272, 100%, 3%, 0.839);
+  --color-10:hsl(37, 100%, 89%);
+  --color-30: hsl(26, 100%, 20%);
+
+
+  --font-body: 'Courgette', helvetica, sans-serif;
+  --font-heading: 'Zhi Mang Xing', cursive;
+
+  --box-shadow-30: .1rem 0rem 2rem .4rem hsl(0, 0%, 0%);
+  --box-shadow-50: 1rem 1rem 2rem 2rem hsl(0, 0%, 0%);
+  --surface-shadow: inset 0px 0px 9rem 0.6rem var(--inset-color-30), 0px 0px 4rem 2rem black;
+  --surface-shadow-10: inset 0px 0px 0.4rem 0.2rem var(--inset-color-30), 0px 0px 4rem 2rem black;
+
+
+  --text-shadow-20: 0.2rem .2rem 0.2rem #000000fc;
+  --text-shadow-30: 0.4rem .2rem 0.3rem #000000fc;
+  --text-shadow-50: 0.6rem 1.8rem 0.6rem #000000fc;
+  --text-glow: 
+        -0.1rem -0.2rem 0.6rem rgba(81, 20, 5, 0.865),
+        0.6rem 1.2rem 0.6rem rgba(81, 20, 5, 0.862),
+        0.2rem 0.6rem 1rem rgba(255, 123, 0, 0.59),
+        0 0 7px hsl(0, 0%, 100%),
+        0 0 10px hsl(0, 0%, 100%),
+        0 0 21px hsl(0, 0%, 100%),
+        0 0 42px hsl(48, 99%, 66%),
+        0 0 82px hsl(29, 100%, 50%),
+        0 0 92px hsl(29, 100%, 40%),
+        0 0 102px hsl(45, 100%, 80%),
+        0 0 151px hsl(45, 100%, 40%);
+}
+
+*,
+*::before,
+*::after {
+  padding:0;
+  margin: 0;
+}
+
+body{
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  background-color: var(--background);
+}
+
+header,
+footer{
+  color: var(--color-30);
+  background-color: var(--surface-20);
+  min-height: 20vh;
+  
+}
+
+header{
+  min-height: 36vh;
+  background-image: url('https://image.tmdb.org/t/p/original/qMxpGzmmnY1jLd4p7EhhoW43wWF.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--box-shadow-50);
+  filter: contrast(120%);
+  border-bottom: .3rem solid var(--inset-color-30);
+}
+
+
+
+footer{
+  /* border-radius: 2rem;
+  max-width: 92vw; */
+  background-color: var(--surface-50);
+  color: var(--color-primary);
+  margin: 0 auto;
+  margin-top: 0rem;
+}
+
+h1{
+  color:rgb(255, 227, 187);
+  font-family: var(--font-heading);
+  font-size: 8rem;
+  text-shadow: var(--text-shadow-50);
+  text-shadow: var(--text-glow);
+  letter-spacing: 0.3rem;
+  margin-top: 4rem;
+  opacity: 0.7;
+  
+}
+
+h2, h3, h4 {
+  margin-bottom: 1rem;
+  text-shadow: var(--text-shadow-30);
+}
+
+h2{
+  margin-bottom: 2rem;
+  text-align: center;
+}
+h2>small{
+  opacity:0.7;
+  /* font-style: italic; */
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+h3{
+  margin-left: 2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h3>span{
+  padding-left: 4rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.film-detail {
+  min-height: 74vh;
+  margin-top:0rem;
+  padding-top: 3.6rem;
+  padding-bottom: 3rem;
+  background-image: url('https://image.tmdb.org/t/p/w600_and_h900_bestv2/npOnzAbLh6VOIu3naU5QaEcTepo.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  animation: animatedBackground 20s linear infinite alternate;
+  opacity: 0.8;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.film-detail > article {
+  width: 74vw;;
+  margin: 0rem auto;
+  padding: 4rem 0rem;
+  background-color: var(--surface-50);
   display: flex;
   flex-direction: column;
+  justify-content: start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  box-shadow: var(--box-shadow-50);
+  box-shadow: var(--surface-shadow);
+  border: .6rem solid var(--inset-color-30);
 }
 
-.App-link {
-  color: #61dafb;
+
+p {
+  max-width: 58ch;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+}
+.film-detail p {
+  color: var(--color-10);
+  font-size: 1.6rem;
+  padding: 1rem;
+  letter-spacing: 0.1rem;
+  text-shadow: var(--text-shadow-20);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+footer>p{
+  max-width: 80ch;
+  margin: 0 auto;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+}
+
+.film-selector {
+}
+
+select{
+  position: relative;
+  min-width: 20vw;
+  font-size: 2rem;
+  padding: .6rem 2rem;
+  opacity: 0.8;
+  color: var(--color-primary);
+  background-color: var(--background);
+  outline: none;
+  border: none;
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+  transform: translateY(0.7rem);
+}
+
+
+
+
+
+ul.horizontal-list{
+  list-style: none;
+  margin: 3rem 1rem;
+  display: flex;justify-content: space-between;
+}
+
+ul.horizontal-list li {
+  padding: 0 2rem;
+  font-size: 1.6rem;
+}
+
+ul.characters,
+ul.characters ul {
+  list-style: none;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(4, 1fr);
+
+}
+
+ul.characters > li > ul {
+  display: block;
+  background-color: hsla(300, 92%, 5%, 0.637);
+  padding: 1rem;
+  border-radius: .6rem;
+  box-shadow: var(--box-shadow-30);
+  box-shadow: var(--surface-shadow-10);
+  line-height: 2rem;
+  text-align: center;
+}
+
+
+
+
+@keyframes animatedBackground {
+/* 
+from {
+  transform: translateX(30%);
+}
+
+to {
+  transform: translateX(0%);
+
+} */
+
+
+  0% {
+    background-position: 50% 50%;
   }
-  to {
-    transform: rotate(360deg);
+
+  50% {
+    background-position: 60% 60%;
+  }
+  
+  100% {
+    background-position: 50% 50%;
   }
 }
