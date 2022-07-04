@@ -1,5 +1,5 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100&family=Zhi+Mang+Xing&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Zhi+Mang+Xing&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100&family=Courgette&family=Zhi+Mang+Xing&display=swap');
 :root{
   
   --background: #1a0901;
@@ -10,6 +10,7 @@
   --surface-30: hsl(22, 100%, 50%);
   --surface-50: hsla(272, 100%, 3%, 0.839);
   --color-10:hsl(37, 100%, 89%);
+  --color-20: hsl(36, 100%, 80%);
   --color-30: hsl(26, 100%, 20%);
 
 
@@ -18,13 +19,20 @@
 
   --box-shadow-30: .1rem 0rem 2rem .4rem hsl(0, 0%, 0%);
   --box-shadow-50: 1rem 1rem 2rem 2rem hsl(0, 0%, 0%);
-  --surface-shadow: inset 0px 0px 9rem 0.6rem var(--inset-color-30), 0px 0px 4rem 2rem black;
-  --surface-shadow-10: inset 0px 0px 0.4rem 0.2rem var(--inset-color-30), 0px 0px 4rem 2rem black;
-
+  --surface-shadow: inset 0px 0px 9rem 0.6rem var(--inset-color-30), 0px 0px 2.4rem 1rem black;
+  --surface-shadow-10: inset 0px 0px 0.4rem 0.2rem var(--inset-color-30), 0px 0px 4rem 2rem rgba(255, 72, 0, 0.386);
+  --panel-width: 76vw;
 
   --text-shadow-20: 0.2rem .2rem 0.2rem #000000fc;
   --text-shadow-30: 0.4rem .2rem 0.3rem #000000fc;
   --text-shadow-50: 0.6rem 1.8rem 0.6rem #000000fc;
+  --text-glow-10: 
+        -0.1rem -0.2rem 0.6rem rgba(81, 20, 5, 0.865),
+        0.6rem 1.2rem 0.6rem rgba(81, 20, 5, 0.862),
+        0.2rem 0.6rem 1rem rgba(255, 123, 0, 0.59),
+        0 0 7px hsl(0, 0%, 100%),
+        0 0 10px hsl(0, 0%, 100%);
+
   --text-glow: 
         -0.1rem -0.2rem 0.6rem rgba(81, 20, 5, 0.865),
         0.6rem 1.2rem 0.6rem rgba(81, 20, 5, 0.862),
@@ -72,7 +80,7 @@ header{
   justify-content: space-between;
   align-items: center;
   box-shadow: var(--box-shadow-50);
-  filter: contrast(120%);
+  filter: contrast(130%) brightness(86%);
   border-bottom: .3rem solid var(--inset-color-30);
 }
 
@@ -85,6 +93,7 @@ footer{
   color: var(--color-primary);
   margin: 0 auto;
   margin-top: 0rem;
+  padding-top: 4rem;;
 }
 
 h1{
@@ -137,9 +146,11 @@ h3>span{
   opacity: 0.8;
 }
 
-.watch-list,
+
 .film-detail > article {
-  width: 74vw;;
+  position: relative;
+  width: var(--panel-width);
+  max-width: 1400px;
   margin: 0rem auto;
   padding: 4rem 0rem;
   background-color: var(--surface-50);
@@ -151,27 +162,27 @@ h3>span{
   box-shadow: var(--surface-shadow);
   border: .6rem solid var(--inset-color-30);
 }
-
-
 p {
   max-width: 58ch;
   font-size: 1.6rem;
   line-height: 2.5rem;
 }
 .film-detail p {
+  letter-spacing: 0.1rem;
   color: var(--color-10);
   font-size: 1.6rem;
   padding: 1rem;
-  letter-spacing: 0.1rem;
   text-shadow: var(--text-shadow-20);
 }
 
-
 footer>p{
   max-width: 80ch;
-  margin: 0 auto;
+  margin: 0rem auto;
+  padding: 2rem 0;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  letter-spacing: 0.05rem;
   text-align: center;
+  color: var(--color-20);
 }
 
 .film-selector {
@@ -180,7 +191,7 @@ footer>p{
 select{
   position: relative;
   min-width: 20vw;
-  font-size: 2rem;
+  font-size: 1.6rem;
   padding: .6rem 2rem;
   opacity: 0.8;
   color: var(--color-primary);
@@ -191,10 +202,6 @@ select{
   border-top-right-radius: 0.8rem;
   transform: translateY(0.7rem);
 }
-
-
-
-
 
 ul.horizontal-list{
   list-style: none;
@@ -207,14 +214,12 @@ ul.horizontal-list li {
   font-size: 1.6rem;
 }
 
-
 ul.characters,
 ul.characters ul {
   list-style: none;
   display: grid;
   gap: 3rem;
   grid-template-columns: repeat(4, 1fr);
-
 }
 
 ul.characters > li > ul {
@@ -223,39 +228,140 @@ ul.characters > li > ul {
   padding: 1rem;
   border-radius: .6rem;
   box-shadow: var(--box-shadow-30);
-  box-shadow: var(--surface-shadow-10);
   line-height: 2rem;
   text-align: center;
 }
 
 .watch-list {
-  margin: 2rem auto;
-  background-color: var(--background);
+  position: relative;
+  min-height: 24vh;
+  margin: 2em auto;
+  padding: 0rem auto;
+  color: var(--color-primary);
+  background-image: url('https://image.tmdb.org/t/p/original/qMxpGzmmnY1jLd4p7EhhoW43wWF.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 80% 90%;
+  filter: contrast(120%) brightness(70%);
+  border-top: .3rem solid var(--inset-color-30);
 }
 
 .watch-list ul{
+  width: 66%;
+  max-width: 1400px;
+  margin: 2rem auto;
+  margin-bottom: 0;
+  padding-bottom: 4rem;
   list-style: none;
-}
-.watch-list >ul >li {
-  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 6rem;
+  justify-content: center;
+  align-items: center;
 }
 
-.watch-list-controls{
-  
+.watch-list >ul >li {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 4rem 1rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--color-10);
+  background-color: hsla(300, 92%, 5%, 0.755);
+  padding: 1rem;
+  border-radius: .6rem;
+  box-shadow: var(--box-shadow-30);
+  box-shadow: var(--surface-shadow-10);
+  line-height: 2rem;
+  text-align: center;
+  text-shadow: var(--text-shadow-30);
 }
+
+.watch-list > h2{
+  margin:0;
+  font-size: 2rem;;
+}
+
+.watch-list-control{
+  position:absolute;
+  font-family: 'Roboto';
+  top: -1.4rem;
+  left: -1.4rem;
+}
+
+.watch-list-control > button{
+  font-size: 1.4rem;
+  color: var(--color-10);
+  background: none;
+  outline: none;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-shadow: var(--text-shadow-20);
+  transition: all 0.9s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.watch-list-control:hover,
+.watch-list-control:hover > button{
+  color: var(--color-20);
+  text-shadow: var(--text-glow-10);
+}
+
+i.fa {
+  padding-right: 1rem;
+  font-size: 2rem;;
+}
+
+@media (max-width: 900px) { 
+
+  h2{
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  h2>small{
+    font-size: 1.4rem;
+  }
+
+  h3>span{
+    padding-left: 4rem;
+  }
+
+  ul.horizontal-list{
+     margin: 1.4rem 1rem;
+  }
+  
+  ul.horizontal-list li {
+    padding: 0 2rem;
+    font-size: 1.1rem;
+  }
+
+  .film-detail > article {
+    width: 92vw
+  }
+
+  .film-detail p{
+    font-size: 1.2rem;
+    line-height: 1.6rem;;
+  }
+
+  .watch-list ul{
+    margin: 1rem auto;
+    padding-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+    gap: 2rem;
+  }
+
+  .watch-list >ul >li {
+    width: 80%;
+    margin: 0 0.6rem;
+    padding: 1.4rem 1rem;
+    font-size: 1.2rem;
+    line-height: 1.9rem;
+    }
+ }
 
 @keyframes animatedBackground {
-/* 
-from {
-  transform: translateX(30%);
-}
-
-to {
-  transform: translateX(0%);
-
-} */
-
-
   0% {
     background-position: 50% 50%;
   }

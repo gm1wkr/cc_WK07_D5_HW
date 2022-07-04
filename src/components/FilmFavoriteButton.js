@@ -5,27 +5,31 @@ const FilmFavoriteButton = ({onButtonAddClick, onButtonRemove, favoriteFilms, cu
     const handleButtonClick = (event) => {
         if(event.target.value === 'add'){
             onButtonAddClick(currentFilm);
-            console.log("FIRED ADD");
+            console.log("FIRED ADD", event.target.value);
         }
         
         if(event.target.value === 'remove'){
             onButtonRemove(currentFilm);
-            console.log("FIRED REMOVE");
+            console.log("FIRED REMOVE", event.target.value);
         }
     }
 
     if(favoriteFilms.includes(currentFilm)){
         return (
-            <div className="watch-List-control">
-                In Watch List! 
-                <button value="remove" onClick={handleButtonClick}>Remove</button>
+            <div className="watch-list-control">
+                
+                <button value="remove" onClick={handleButtonClick}>
+                <i className="fa fa-minus-circle" aria-hidden="true"></i> from Watch List! 
+                </button>
             </div>
         )
     }else{
 
         return(
-            <div className="watch-List-control">
-                <button value="add" onClick={handleButtonClick}>Add to My Favorites</button>
+            <div className="watch-list-control">
+                <button value="add" onClick={handleButtonClick}>
+                <i className="fa fa-plus-circle" aria-hidden="true"> </i> to Watch List
+                </button>
             </div>
         )
     }

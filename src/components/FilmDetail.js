@@ -20,15 +20,16 @@ const FilmDetail = ({ filmArray, filmId, onFavButtonClick, onFavButtonRemoveClic
 
     return (
         <div className="film-detail" style={backgroundStyle}>
+            
             <article>
+                <FilmFavoriteButton
+                    onButtonAddClick={onFavButtonClick}
+                    onButtonRemove={onFavButtonRemoveClick}
+                    favoriteFilms={favoriteFilms} 
+                    currentFilm={film}
+                />
                 <div>
                     <h2>{film.original_title}<br/><small>{film.title}</small></h2>
-                    <FilmFavoriteButton
-                        onButtonAddClick={onFavButtonClick}
-                        onButtonRemove={onFavButtonRemoveClick}
-                        favoriteFilms={favoriteFilms} 
-                        currentFilm={film}
-                    />
                     <h3>Directed by {film.director}<span>Produced by {film.producer}</span></h3>
                     <ul className="horizontal-list">
                         <li><span>Released</span> {film.release_date}</li>

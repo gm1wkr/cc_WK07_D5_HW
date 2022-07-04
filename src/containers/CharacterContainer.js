@@ -3,7 +3,7 @@ import Characters from "../components/Characters";
 
 const CharacterContainer = ({charactersInFilm}) => {
 
-    const [characters, setCharacters] = useState('');
+    const [characters, setCharacters] = useState([]);
 
     async function getCharacters(){
         const apiUrl = `https://ghibliapi.herokuapp.com/people/`;
