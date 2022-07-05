@@ -12,17 +12,17 @@
   --color-10:hsl(37, 100%, 89%);
   --color-20: hsl(36, 100%, 80%);
   --color-30: hsl(26, 100%, 20%);
-
-
   --font-body: 'Courgette', helvetica, sans-serif;
   --font-heading: 'Zhi Mang Xing', cursive;
-
+  --box-shadow-20: .1rem 0rem 1rem .4rem hsl(0, 0%, 0%);
   --box-shadow-30: .1rem 0rem 2rem .4rem hsl(0, 0%, 0%);
   --box-shadow-50: 1rem 1rem 2rem 2rem hsl(0, 0%, 0%);
   --surface-shadow: inset 0px 0px 9rem 0.6rem var(--inset-color-30), 0px 0px 2.4rem 1rem black;
-  --surface-shadow-10: inset 0px 0px 0.4rem 0.2rem var(--inset-color-30), 0px 0px 4rem 2rem rgba(255, 72, 0, 0.386);
+  --surface-shadow-10: inset 0px 0px 0.4rem 0.2rem var(--inset-color-30), 
+                      0px 0px 4rem 2rem rgba(139, 1, 52, 0.386);
+  --surface-shadow-20: inset 0px 0px 0.6rem 0.3rem var(--inset-color-30), 
+                      0px 0px 1rem 1rem rgba(32, 0, 21, 0.812);
   --panel-width: 76vw;
-
   --text-shadow-20: 0.2rem .2rem 0.2rem #000000fc;
   --text-shadow-30: 0.4rem .2rem 0.3rem #000000fc;
   --text-shadow-50: 0.6rem 1.8rem 0.6rem #000000fc;
@@ -227,7 +227,7 @@ ul.characters > li > ul {
   background-color: hsla(300, 92%, 5%, 0.637);
   padding: 1rem;
   border-radius: .6rem;
-  box-shadow: var(--box-shadow-30);
+  box-shadow: var(--surface-shadow-20);
   line-height: 2rem;
   text-align: center;
 }
